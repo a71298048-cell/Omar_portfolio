@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A student-friendly comparison of HTTP GET and POST methods by Omar Ayman Omar.">
+  <title>GET vs POST | Omar Ayman Omar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">O</span><span>Omar Ayman Omar</span></a>
+      <nav aria-label="Main navigation">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="index.html#about">About</a>
+        <a class="nav-link" href="index.html#skills">Skills</a>
+        <a class="nav-link" href="index.html#projects">Projects</a>
+        <a class="nav-cta active-cta" href="get-vs-post.html">GET vs POST Task <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="task-main">
+    <section class="task-hero"><div class="container"><a class="back-link" href="index.html">← Back to portfolio</a><p class="eyebrow"><span class="status-dot"></span> WEB DEVELOPMENT / TASK 02</p><h1>GET <span class="gradient-text">vs</span> POST</h1><p class="task-subtitle">Understanding two common HTTP methods used to send requests between a browser and a web server.</p><div class="task-meta"><span>✦ By Omar Ayman Omar</span><span>HTML &amp; CSS</span><span>Learning notes</span></div></div></section>
+    <section class="container task-content">
+      <div class="answer-banner"><div class="answer-icon">i</div><div><strong>The key idea</strong><p><b>GET</b> is mainly used to retrieve data. <b>POST</b> is commonly used to submit data for processing or to create/update a resource.</p></div></div>
+      <section class="task-section"><p class="eyebrow">01 / OVERVIEW</p><h2>What are HTTP methods?</h2><p>HTTP methods tell a web server what action a client (such as a browser) wants to perform on a resource. GET and POST are two of the most frequently used methods when working with websites and HTML forms.</p></section>
+      <div class="method-grid">
+        <article class="method-card get-card"><div class="method-card-heading"><span class="method-badge get-badge">GET</span><span class="method-caption">RETRIEVE DATA</span></div><h3>Request information</h3><p>GET asks the server to return a resource or information. Search pages and filters often use GET, and submitted values may appear in the URL query string.</p><ul class="check-list"><li>Parameters can appear in the URL.</li><li>Can be bookmarked and shared as a link.</li><li>Should not be used for actions that change server data.</li></ul><div class="url-example"><span>EXAMPLE URL</span><code>/search?q=html</code></div></article>
+        <article class="method-card post-card"><div class="method-card-heading"><span class="method-badge post-badge">POST</span><span class="method-caption">SUBMIT DATA</span></div><h3>Send information</h3><p>POST sends submitted data in the request body. It is commonly used for contact forms, sign-ups, and creating a new record on a server.</p><ul class="check-list"><li>Form data is normally sent in the request body.</li><li>Not automatically represented as a shareable URL.</li><li>Can cause changes on the server, depending on the endpoint.</li></ul><div class="url-example"><span>EXAMPLE REQUEST</span><code>POST /contact</code></div></article>
+      </div>
+      <section class="task-section"><p class="eyebrow">02 / COMPARISON</p><h2>GET vs POST at a glance</h2><div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>Feature</th><th><span class="table-method get-text">GET</span></th><th><span class="table-method post-text">POST</span></th></tr></thead><tbody><tr><td>Typical purpose</td><td>Retrieve information</td><td>Submit data for processing</td></tr><tr><td>Where data is sent</td><td>Often in the URL query string</td><td>Usually in the request body</td></tr><tr><td>Bookmarking</td><td>URL can often be bookmarked</td><td>Submitted body is not saved in a URL bookmark</td></tr><tr><td>Browser history</td><td>Query string may be visible in history</td><td>Form body is not normally stored in the URL history</td></tr><tr><td>Data size</td><td>URL length limits apply</td><td>Request-body size depends on server configuration</td></tr><tr><td>Security</td><td>HTTPS is important when data is transmitted</td><td>HTTPS is also required to protect data in transit</td></tr><tr><td>Common example</td><td>Search and filtering</td><td>Contact form or account creation</td></tr></tbody></table></div><p class="table-note">Important: POST is not automatically secure, and GET is not automatically insecure. Use HTTPS for both. Do not put passwords or sensitive information in a URL.</p></section>
+      <section class="task-section"><p class="eyebrow">03 / HTML EXAMPLES</p><h2>How are they used in HTML?</h2><p>The <code>method</code> attribute on a form specifies how the browser sends the form data. These are example snippets for learning; they are not connected to a live server.</p>
+        <div class="code-example"><div class="code-heading"><span class="code-dot get-dot"></span><strong>GET form</strong><span class="code-label">SEARCH</span></div><pre><code>&lt;form action="/search" method="get"&gt;
+  &lt;label for="query"&gt;Search:&lt;/label&gt;
+  &lt;input id="query" name="q" type="text"&gt;
+  &lt;button type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;</code></pre><div class="code-explain">A search for “HTML” could produce a URL like <code>/search?q=HTML</code>.</div></div>
+        <div class="code-example"><div class="code-heading"><span class="code-dot post-dot"></span><strong>POST form</strong><span class="code-label">CONTACT</span></div><pre><code>&lt;form action="/contact" method="post"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input id="email" name="email" type="email"&gt;
+  &lt;label for="message"&gt;Message:&lt;/label&gt;
+  &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+  &lt;button type="submit"&gt;Send message&lt;/button&gt;
+&lt;/form&gt;</code></pre><div class="code-explain">The browser sends the form fields in the request body. A server must be configured to handle <code>/contact</code>.</div></div>
+      </section>
+      <section class="task-section"><p class="eyebrow">04 / CONCLUSION</p><h2>When should you use each method?</h2><div class="conclusion-grid"><div class="conclusion-item"><span class="conclusion-number">01</span><div><h3>Choose GET</h3><p>When you need to request or search for information and it is useful for the URL to represent the query.</p></div></div><div class="conclusion-item"><span class="conclusion-number">02</span><div><h3>Choose POST</h3><p>When a user submits information for the server to process, such as sending a message or creating an account.</p></div></div></div><p class="final-note">In conclusion, GET and POST serve different purposes. Choosing the correct method helps make web applications clearer and more predictable.</p></section>
+      <div class="task-footer-cta"><div><span class="eyebrow">THANK YOU FOR READING</span><h2>Back to the full portfolio?</h2></div><a class="button button-primary" href="index.html">Return home <span>↗</span></a></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="index.html"><span class="brand-mark">O</span><span>Omar Ayman Omar</span></a><p>Designed and built with HTML &amp; CSS.</p><span class="copyright">© 2026 Omar Ayman Omar</span></div></footer>
+</body>
+</html>
